@@ -1,0 +1,37 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+<div id="login-panel">
+    <div class="text-center">
+        <img src="{{ asset('assets/img/account-circle.png') }}" alt="profile">
+    </div>
+    <form role="form" action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% if error %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <p>{{ error|trans({}, 'FOSUserBundle') }}</p>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="username" class="sr-only">Usuario</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control white-placeholder" placeholder="Usuario o Email" required="required" />
+        </div>
+        <div class="form-group">
+            <label for="password" class="sr-only">Clave</label>
+            <input type="password" id="password" name="_password" required="required" class="form-control white-placeholder" placeholder="Clave" />
+        </div>
+        <div class="checkbox">
+            <label class="text-white" for="remember_me">
+                <input type="checkbox" id="remember_me" name="_remember_me">&nbsp;Recordarme
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="_submit" class="btn btn-success btn-block" value="Iniciar sesión" />
+        </div>
+        <div class="form-group text-center forgot-password-container">
+            <a href="#">Olvide mi contrase&ntilde;a</a>
+        </div>
+    </form>					
+</div>
+{% endblock %}

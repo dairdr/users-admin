@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maxium-scale=1,user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
+        <!-- iphone -->
+        <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
+        <!-- ipad -->
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('apple-touch-icon.png') }}">
+        <!-- iphone retina -->
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('apple-touch-icon.png') }}">
+        <!-- ipad retina -->
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('apple-touch-icon.png') }}">
+        
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootswatch-3.2.0-flatly/css/bootstrap.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container-fluid">
+            <div class="row logo-container">
+                <div class="col-md-3 col-md-offset-1">
+                    <h1><a href="#"><img src="{{ asset('assets/img/logo.png') }}" alt="project one logo"></a></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1 hidden-sm hidden-xs">
+                    <div class="text-white">
+                        <h3>Conexiones Barranquilla</h3>
+                        <p>Diagnostico, concertacion, intervencion y ejecucion de obras de conexiones intradomiciliarias en los barrios Evaristo Sourdis, Ciudad Modestos, Pinar del Rio, El Rebolo y Las Nieves de la Ciudad de Barranquilla</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-4 center-block non-float">
+                    {% block fos_user_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{ asset('assets/libs/sb-admin/js/jquery-1.11.0.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/libs/bootswatch-3.2.0-flatly/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/libs/retina-1.3.0/retina.min.js') }}"></script>
     </body>
 </html>
+
