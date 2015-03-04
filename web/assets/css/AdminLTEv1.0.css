@@ -1,0 +1,7 @@
+.content {
+    overflow: visible;
+}
+
+button.close:focus {
+    outline: none;
+}
