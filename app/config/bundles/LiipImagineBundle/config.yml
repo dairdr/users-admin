@@ -1,0 +1,28 @@
+liip_imagine:
+    driver: gd
+    resolvers:
+        profile:
+            web_path:
+                web_root: %kernel.root_dir%/../web/
+                cache_prefix: %liip_imagine_path.cache_prefix%
+    loaders:
+        profile_loader:
+            filesystem:
+                data_root: %kernel.root_dir%/..%liip_imagine_path.data_root%  
+    cache: profile
+    filter_sets:
+        profile_24x24:
+            data_loader: profile_loader
+            quality: 80
+            filters:
+                thumbnail: { size: [24, 24], mode: outbound }
+        profile_100x100:
+            data_loader: profile_loader     
+            quality: 80
+            filters:
+                thumbnail: { size: [100, 100], mode: outbound }
+        logo_100:
+            data_loader: tercero_loader
+            quality: 70
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }

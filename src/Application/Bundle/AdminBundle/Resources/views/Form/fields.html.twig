@@ -1,0 +1,89 @@
+{% block form_builder_widget %}
+    {% spaceless %}
+        {% set debug = debug|default(false) %}
+        <div class="{% if not debug %}hidden{% endif %}">
+            <textarea {{ block('widget_attributes') }}></textarea>
+        </div>
+        
+        <!-- contenedor del form builder -->
+        <div id="form-builder-container">
+            <div class="elements"></div>
+            <div class="options"></div>
+        </div>
+        
+        <!-- modal alert -->
+        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Confirmaci&oacute;n</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Esta seguro de eliminar la pregunta?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger delete">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-builder-elements-container hidden">
+            
+            <!-- pregunta -->
+            <div class="panel panel-primary form-element-layout">
+                <div class="panel-body">
+                    <div class="panel-header" style="overflow:hidden;margin-bottom:10px;">
+                        <button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" class="form-control" rows="3" placeholder="Pregunta"></textarea>
+                    </div>
+                    <div class="form-group form-select-container">
+                        
+                    </div>
+                    <div class="form-group options-container">
+                        <span>Opciones de respuesta</span>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Escriba la opci&oacute;n" />
+                                    <span class="input-group-btn">
+                                        <button role="button" type="button" class="btn btn-success"><i class="fa fa-plus-circle"></i></button>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- boton de eliminar opcion de respuesta -->
+            <li class="list-group-item delete-item">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Escriba la opci&oacute;n" />
+                    <span class="input-group-btn">
+                        <button role="button" type="button" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button>
+                    </span>
+                </div>
+            </li>
+            
+            <!-- tipos de pregunta -->
+            <div id="question-options">
+                <input type="hidden" value="Tipo de pregunta" id="" />
+                <input type="hidden" value="Opci&oacute;n m&uacute;ltiple con &uacute;nica respuesta" id="omur" />
+                <input type="hidden" value="Opci&oacute;n m&uacute;ltiple con m&uacute;ltiple respuesta" id="ommr" />
+                <input type="hidden" value="Respuesta &uacute;nica (texto)" id="ur-t" />
+                <input type="hidden" value="Respuesta &uacute;nica (texto multilinea)" id="ur-tm" />
+                <input type="hidden" value="Respuesta &uacute;nica (n&uacute;mero)" id="ur-n" />
+            </div>
+            
+            <!-- boton de agregar pregunta -->
+            <div class="add-form-element-container">
+                <button role="button" type="button" class="btn btn-primary btn-block"><i class="fa fa-plus-circle"></i>&nbsp;Nuevo</button>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock %}

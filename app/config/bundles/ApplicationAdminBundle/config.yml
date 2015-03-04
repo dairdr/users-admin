@@ -1,0 +1,91 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text: 
+        sonata.block.service.rss:
+        
+sonata_admin:
+    title:      Sonata Admin
+    security:
+        handler: sonata.admin.security.handler.role
+    templates:
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        blocks:
+            - { position: left, type: sonata.admin.block.admin_list }
+            - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
+            - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome to the Sonata Admin</h2> <p>This is a <code>sonata.block.service.text</code> from the Block Bundle, you can create and add new block in these area by configuring the <code>sonata_admin</code> section.</p> <br /> For instance, here a RSS feed parser (<code>sonata.block.service.rss</code>):"} }
+    options:
+        html5_validate:                         true      # use html5 validation
+        confirm_exit:                           true      # enabled confirmation when quitting with unsaved changes
+        use_select2:                            true      # enable select2
+        use_icheck:                             true      # enable iCheck
+        pager_links:                            5         # pager max links to display
+        dropdown_number_groups_per_colums:      2
+    assets:
+        stylesheets:
+            - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
+            - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
+            - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/AdminLTE/css/AdminLTE.css
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+            - bundles/sonatacore/vendor/select2/select2.css
+            - bundles/sonatacore/vendor/select2/select2-bootstrap.css
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+            - bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sonataadmin/css/tree.css
+            - http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic
+            - http://fonts.googleapis.com/css?family=Kaushan+Script
+            - assets/css/AdminLTEv1.0.css
+        javascripts:
+            - bundles/sonatacore/vendor/jquery/dist/jquery.min.js
+            - bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js
+            - bundles/sonatacore/vendor/moment/min/moment.min.js
+            - bundles/sonatacore/vendor/bootstrap/dist/js/bootstrap.min.js
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js
+            - bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js
+            - bundles/sonataadmin/jquery/jquery.form.js
+            - bundles/sonataadmin/jquery/jquery.confirmExit.js
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js
+            - bundles/sonatacore/vendor/select2/select2.min.js
+            - bundles/sonataadmin/App.js
+            - bundles/sonataadmin/Admin.js
+            - bundles/sonataadmin/treeview.js
+            - bundles/sonatacore/vendor/select2/select2_locale_es.js
+
+sonata_user:
+    security_acl: true
+    table:
+        user_group: user_has_group #tabla que relaciona a los usuarios y grupos
+    manager_type: orm
+    class:                  # Entity Classes
+        user:               %application_user.user.class%
+        group:              %application_user.group.class%
+
+    admin:                  # Admin Classes
+        user:
+            class:          Sonata\UserBundle\Admin\Entity\UserAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
+        group:
+            class:          Sonata\UserBundle\Admin\Entity\GroupAdmin
+            controller:     SonataAdminBundle:CRUD
+            translation:    SonataUserBundle
+    
+fos_user:
+    db_driver:      orm
+    firewall_name:  main
+    user_class:     %application_user.user.class% #Sonata\UserBundle\Entity\BaseUser
+    group:
+        group_class:   %application_user.group.class% #Sonata\UserBundle\Entity\BaseGroup
+        group_manager: sonata.user.orm.group_manager
+    service:
+        user_manager:  sonata.user.orm.user_manager    

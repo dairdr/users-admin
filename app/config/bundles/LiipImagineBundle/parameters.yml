@@ -1,0 +1,3 @@
+parameters:
+    liip_imagine_path.cache_prefix: /uploads/profiles/pictures 
+    liip_imagine_path.data_root: uploads/profile_pictures/

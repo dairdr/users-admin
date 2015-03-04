@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff" >
+        <body>
+            <trans-unit id="link_filters">
+                <source>link_filters</source>
+                <target>Filtros</target>
+            </trans-unit>
+            <trans-unit id="link_breadcrumb_dashboard">
+                <source>breadcrumb.link_dashboard</source>
+                <target><![CDATA[<i class="fa fa-home"></i>]]></target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

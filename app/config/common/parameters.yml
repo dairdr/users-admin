@@ -1,0 +1,18 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 52.0.67.42
+    database_port: 3306
+    database_name: vote
+    database_user: vote
+    database_password: hapjp47dw
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: es
+    secret: mJhJv2cK9KM2gUYSAkp5UO38lr12n8NW
+    remember_me_secret: 3F24DFEAEF2F99423B1D2847FCC2A
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true

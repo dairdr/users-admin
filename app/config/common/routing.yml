@@ -1,0 +1,13 @@
+# Archivo de routing principal
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+application_admin:
+    resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
+    prefix: /
+    
+application_user:
+    resource: "@ApplicationSonataUserBundle/Controller/"
+    type: annotation

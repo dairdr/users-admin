@@ -1,0 +1,34 @@
+services:
+    # other services
+    application_admin.form.type.form_builder:
+        class: Application\Bundle\AdminBundle\Form\Type\FormBuilderType
+        tags:
+            - { name: form.type, alias: form_builder }
+    
+    # administration
+    sonata.user.admin.user:
+        class: %sonata.user.admin.user.class%
+        arguments: [~, %sonata.user.admin.user.entity%, %sonata.user.admin.user.controller%]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: %sonata.user.admin.groupname%
+              label: 'users'
+              label_catalogue: SonataUserBundle
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+              icon: '<i class="fa fa-user fa-tachometer"></i>'
+        calls:
+            - [setTranslationDomain, [%sonata.user.admin.user.translation_domain%]]
+            
+    sonata.user.admin.group:
+        class: %sonata.user.admin.group.class%
+        arguments: [~, %sonata.user.admin.group.entity%, %sonata.user.admin.group.controller%]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: %sonata.user.admin.groupname%
+              label: 'groups'
+              label_catalogue: SonataUserBundle
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+        calls:
+            - [setTranslationDomain, [%sonata.user.admin.group.translation_domain%]]

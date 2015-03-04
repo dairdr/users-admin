@@ -1,0 +1,3 @@
+parameters:
+    application_user.user.class:  Application\Sonata\UserBundle\Entity\User
+    application_user.group.class: Application\Sonata\UserBundle\Entity\Group

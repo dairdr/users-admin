@@ -1,5 +1,7 @@
 imports:
-    - { resource: config.yml }
+    - { resource: ../common/config.yml }
+    - { resource: parameters.yml }
+    - { resource: security.yml }
 
 #framework:
 #    validation:
