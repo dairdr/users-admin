@@ -6,12 +6,16 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ConfigVendorTypeAdmin extends Admin {
+class TeacherAdmin extends Admin
+{
+    private $container = null;
     
-    public function __construct($code, $class, $baseControllerName) {
+    public function __construct($code, $class, $baseControllerName, $container)
+    {
         parent::__construct($code, $class, $baseControllerName);
+        $this->container = $container;
     }
-
+    
     /**
      * Fields to be shown on create/edit forms.
      * 
@@ -21,18 +25,34 @@ class ConfigVendorTypeAdmin extends Admin {
     {
         $formMapper
             ->add(
-                'name',
+                'names',
                 'text',
                 [
-                    'label'=>'config_vendor_type.sonata.form.name.label',
-                    'required'=>true,
+                    'label'=>'vendor.sonata.form.names.label',
+                    'required'=>false,
                 ]
             )
             ->add(
-                'description',
-                'textarea',
+                'lastname',
+                'text',
                 [
-                    'label'=>'config_vendor_type.sonata.form.description.label',
+                    'label'=>'vendor.sonata.form.lastnames.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'voted',
+                null,
+                [
+                    'label'=>'vendor.sonata.form.enabled.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'voteCounting',
+                null,
+                [
+                    'label'=>'vendor.sonata.form.enabled.label',
                     'required'=>false,
                 ]
             )
@@ -48,10 +68,10 @@ class ConfigVendorTypeAdmin extends Admin {
     {
         $datagridMapper
             ->add(
-                'name',
+                'voted',
                 null,
                 [
-                    'label'=>'config_vendor_type.sonata.filter.name.label',
+                    'label'=>'admin.vendor.filter.lastnames.label',
                 ]
             )
         ;
@@ -65,18 +85,32 @@ class ConfigVendorTypeAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier(
-                'name',
+            ->add(
+                'names',
                 null,
                 [
-                    'label'=>'config_vendor_type.sonata.list.name.label',
+                    'label'=>'vendor.sonata.list.names.label',
                 ]
             )
             ->add(
-                'description',
+                'lastname',
                 null,
                 [
-                    'label'=>'config_vendor_type.sonata.list.description.label',
+                    'label'=>'vendor.sonata.list.lastnames.label',
+                ]
+            )
+            ->add(
+                'voted',
+                null,
+                [
+                    'label'=>'vendor.sonata.list.lastnames.label',
+                ]
+            )
+            ->add(
+                'voteCounting',
+                null,
+                [
+                    'label'=>'vendor.sonata.list.lastnames.label',
                 ]
             )
             ->add(

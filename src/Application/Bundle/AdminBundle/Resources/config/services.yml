@@ -32,3 +32,64 @@ services:
               label_translator_strategy: 'sonata.admin.label.strategy.underscore'
         calls:
             - [setTranslationDomain, [%sonata.user.admin.group.translation_domain%]]
+    
+    # app
+    sonata.admin.grade:
+        class: Application\Bundle\AdminBundle\Admin\GradeAdmin
+        arguments: [~, AppBundle\Entity\Grade, SonataAdminBundle:CRUD, @service_container]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: 'app.sonata.group'
+              label: 'grade.sonata.label'
+              icon: '<i class="fa fa-folder-open fa-fw"></i>'
+              label_catalogue: 'messages'
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+              
+    sonata.admin.grupo:
+        class: Application\Bundle\AdminBundle\Admin\GrupoAdmin
+        arguments: [~, AppBundle\Entity\Grupo, SonataAdminBundle:CRUD, @service_container]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: 'app.sonata.group'
+              label: 'group.sonata.label'
+              icon: '<i class="fa fa-folder-open fa-fw"></i>'
+              label_catalogue: 'messages'
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+              
+    sonata.admin.time:
+        class: Application\Bundle\AdminBundle\Admin\TimeAdmin
+        arguments: [~, AppBundle\Entity\Time, SonataAdminBundle:CRUD, @service_container]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: 'app.sonata.group'
+              label: 'time.sonata.label'
+              icon: '<i class="fa fa-folder-open fa-fw"></i>'
+              label_catalogue: 'messages'
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+              
+    sonata.admin.teacher:
+        class: Application\Bundle\AdminBundle\Admin\TeacherAdmin
+        arguments: [~, AppBundle\Entity\Teacher, SonataAdminBundle:CRUD, @service_container]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: 'app.sonata.group'
+              label: 'project.sonata.label'
+              icon: '<i class="fa fa-folder-open fa-fw"></i>'
+              label_catalogue: 'messages'
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'
+              
+    sonata.admin.student:
+        class: Application\Bundle\AdminBundle\Admin\StudentAdmin
+        arguments: [~, AppBundle\Entity\Student, SonataAdminBundle:CRUD, @service_container]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: 'app.sonata.group'
+              label: 'project.sonata.label'
+              icon: '<i class="fa fa-folder-open fa-fw"></i>'
+              label_catalogue: 'messages'
+              label_translator_strategy: 'sonata.admin.label.strategy.underscore'

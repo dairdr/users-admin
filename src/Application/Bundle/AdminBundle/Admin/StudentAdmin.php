@@ -6,14 +6,16 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class FormAdmin extends Admin {
+class StudentAdmin extends Admin
+{
     private $container = null;
     
-    public function __construct($code, $class, $baseControllerName, $container) {
+    public function __construct($code, $class, $baseControllerName, $container)
+    {
         parent::__construct($code, $class, $baseControllerName);
         $this->container = $container;
     }
-
+    
     /**
      * Fields to be shown on create/edit forms.
      * 
@@ -22,44 +24,46 @@ class FormAdmin extends Admin {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Básico', ['class'=>'col col-md-6'])
-                ->add(
-                    'name',
-                    'text',
-                    [
-                        'label'=>'form.sonata.form.name.label',
-                        'required'=>true,
-                    ]
-                )
-                ->add(
-                    'description',
-                    'textarea',
-                    [
-                        'label'=>'form.sonata.form.description.label',
-                        'attr'=>['rows'=>4],
-                        'required'=>false,
-                    ]
-                )
-                ->add(
-                    'enabled',
-                    null,
-                    [
-                        'label'=>'form.sonata.form.enabled.label',
-                        'required'=>false,
-                    ]
-                )
-            ->end()
-            ->with('Formulario', ['class'=>'col col-md-6'])
-                ->add(
-                    'content',
-                    'form_builder',
-                    [
-                        'label'=>'form.sonata.form.content.label',
-                        'trim'=>true,
-                        'required'=>true,
-                    ]
-                )
-            ->end()
+            ->add(
+                'names',
+                'text',
+                [
+                    'label'=>'vendor.sonata.form.names.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'lastname',
+                'text',
+                [
+                    'label'=>'vendor.sonata.form.lastnames.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'voted',
+                null,
+                [
+                    'label'=>'vendor.sonata.form.enabled.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'voteCounting',
+                null,
+                [
+                    'label'=>'vendor.sonata.form.enabled.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'isPersonero',
+                null,
+                [
+                    'label'=>'vendor.sonata.form.enabled.label',
+                    'required'=>false,
+                ]
+            )
         ;
     }
 
@@ -72,17 +76,17 @@ class FormAdmin extends Admin {
     {
         $datagridMapper
             ->add(
-                'name',
+                'voted',
                 null,
                 [
-                    'label'=>'form.sonata.filter.name.label',
+                    'label'=>'admin.vendor.filter.lastnames.label',
                 ]
             )
             ->add(
-                'enabled',
+                'isPersonero',
                 null,
                 [
-                    'label'=>'form.sonata.filter.enabled.label',
+                    'label'=>'admin.vendor.filter.lastnames.label',
                 ]
             )
         ;
@@ -96,26 +100,25 @@ class FormAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier(
-                'name',
+            ->add(
+                'names',
                 null,
                 [
-                    'label'=>'form.sonata.list.name.label',
+                    'label'=>'vendor.sonata.list.names.label',
                 ]
             )
             ->add(
-                'description',
+                'lastname',
                 null,
                 [
-                    'label'=>'form.sonata.list.description.label',
+                    'label'=>'vendor.sonata.list.lastnames.label',
                 ]
             )
             ->add(
-                'enabled',
+                'voted',
                 null,
                 [
-                    'label'=>'form.sonata.list.enabled.label',
-                    'editable'=>true,
+                    'label'=>'vendor.sonata.list.lastnames.label',
                 ]
             )
             ->add(
@@ -135,23 +138,25 @@ class FormAdmin extends Admin {
     /**
      * Pre update action.
      * 
-     * @param \CTL\Bundle\ProjectBundle\Entity\Form $object
+     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
      */
     public function preUpdate($object)
     {
         $object->setUpdatedAt(new \DateTime());
+        $object->setFosUserUser($this->container->get('security.context')->getToken()->getUser());
         parent::preUpdate($object);
     }
     
     /**
      * Pre persist action.
      * 
-     * @param \CTL\Bundle\ProjectBundle\Entity\Form $object
+     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
      */
     public function prePersist($object)
     {
         $object->setCreatedAt(new \DateTime());
         $object->setUpdatedAt(new \DateTime());
+        $object->setFosUserUser($this->container->get('security.context')->getToken()->getUser());
         parent::prePersist($object);
     }
     
@@ -159,7 +164,7 @@ class FormAdmin extends Admin {
      * Validate action.
      * 
      * @param \Sonata\AdminBundle\Validator\ErrorElement $errorElement
-     * @param \CTL\Bundle\ProjectBundle\Entity\Form $object
+     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
      */
     public function validate(\Sonata\AdminBundle\Validator\ErrorElement $errorElement, $object) {
         parent::validate($errorElement, $object);

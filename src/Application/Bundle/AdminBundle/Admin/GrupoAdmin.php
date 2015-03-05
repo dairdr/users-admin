@@ -6,14 +6,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class StateAdmin extends Admin {
-    private $container = null;
+class GrupoAdmin extends Admin
+{
     
-    public function __construct($code, $class, $baseControllerName, $container) {
+    public function __construct($code, $class, $baseControllerName)
+    {
         parent::__construct($code, $class, $baseControllerName);
-        $this->container = $container;
     }
-    
+
     /**
      * Fields to be shown on create/edit forms.
      * 
@@ -23,30 +23,18 @@ class StateAdmin extends Admin {
     {
         $formMapper
             ->add(
-                'iata',
-                'text',
-                [
-                    'label'=>'state.sonata.form.iata.label',
-                    'required'=>true,
-                ]
-            )
-            ->add(
                 'name',
                 'text',
                 [
-                    'label'=>'state.sonata.form.name.label',
+                    'label'=>'country.sonata.form.name.label',
                     'required'=>true,
                 ]
             )
             ->add(
-                'country',
-                'sonata_type_model_autocomplete',
+                'description',
+                'text',
                 [
-                    'label'=>'state.sonata.form.country.label',
-                    'class'=>$this->container->getParameter('ctl_project.entities.country_class'),
-                    'property'=>'name',
-                    'minimum_input_length'=>2,
-                    'placeholder'=>$this->trans('state.sonata.form.country.placeholder'),
+                    'label'=>'country.sonata.form.iata.label',
                     'required'=>true,
                 ]
             )
@@ -62,17 +50,17 @@ class StateAdmin extends Admin {
     {
         $datagridMapper
             ->add(
-                'iata',
-                null,
-                [
-                    'label'=>'state.sonata.filter.iata.label',
-                ]
-            )
-            ->add(
                 'name',
                 null,
                 [
-                    'label'=>'state.sonata.filter.name.label',
+                    'label'=>'country.sonata.filter.name.label',
+                ]
+            )
+            ->add(
+                'description',
+                null,
+                [
+                    'label'=>'country.sonata.filter.iata.label',
                 ]
             )
         ;
@@ -87,24 +75,17 @@ class StateAdmin extends Admin {
     {
         $listMapper
             ->addIdentifier(
-                'iata',
-                null,
-                [
-                    'label'=>'state.sonata.list.iata.label',
-                ]
-            )
-            ->add(
                 'name',
                 null,
                 [
-                    'label'=>'state.sonata.list.name.label',
+                    'label'=>'country.sonata.list.name.label',
                 ]
             )
             ->add(
-                'country',
+                'description',
                 null,
                 [
-                    'label'=>'state.sonata.list.country.label',
+                    'label'=>'country.sonata.list.iata.label',
                 ]
             )
             ->add(

@@ -6,14 +6,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class NeighborhoodAdmin extends Admin {
-    private $container = null;
+class GradeAdmin extends Admin
+{
     
-    public function __construct($code, $class, $baseControllerName, $container) {
+    public function __construct($code, $class, $baseControllerName)
+    {
         parent::__construct($code, $class, $baseControllerName);
-        $this->container = $container;
     }
-    
+
     /**
      * Fields to be shown on create/edit forms.
      * 
@@ -26,20 +26,16 @@ class NeighborhoodAdmin extends Admin {
                 'name',
                 'text',
                 [
-                    'label'=>'neighborhood.sonata.form.name.label',
+                    'label'=>'grade.sonata.form.name.label',
                     'required'=>true,
                 ]
             )
             ->add(
-                'city',
-                'sonata_type_model_autocomplete',
+                'description',
+                'text',
                 [
-                    'label'=>'neighborhood.sonata.form.city.label',
-                    'class'=>$this->container->getParameter('ctl_project.entities.city_class'),
-                    'property'=>'name',
-                    'minimum_input_length'=>2,
-                    'placeholder'=>  $this->trans('neighborhood.sonata.form.city.placeholder'),
-                    'required'=>false,
+                    'label'=>'grade.sonata.form.description.label',
+                    'required'=>true,
                 ]
             )
         ;
@@ -57,7 +53,14 @@ class NeighborhoodAdmin extends Admin {
                 'name',
                 null,
                 [
-                    'label'=>'neighborhood.sonata.filter.name.label',
+                    'label'=>'grade.sonata.filter.name.label',
+                ]
+            )
+            ->add(
+                'description',
+                null,
+                [
+                    'label'=>'grade.sonata.filter.description.label',
                 ]
             )
         ;
@@ -75,14 +78,14 @@ class NeighborhoodAdmin extends Admin {
                 'name',
                 null,
                 [
-                    'label'=>'neighborhood.sonata.list.name.label',
+                    'label'=>'grade.sonata.list.name.label',
                 ]
             )
             ->add(
-                'city',
+                'description',
                 null,
                 [
-                    'label'=>'neighborhood.sonata.list.city.label',
+                    'label'=>'grade.sonata.list.description.label',
                 ]
             )
             ->add(

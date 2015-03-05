@@ -6,9 +6,11 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ConfigProjectStateAdmin extends Admin {
+class TimeAdmin extends Admin
+{
     
-    public function __construct($code, $class, $baseControllerName) {
+    public function __construct($code, $class, $baseControllerName)
+    {
         parent::__construct($code, $class, $baseControllerName);
     }
 
@@ -24,16 +26,16 @@ class ConfigProjectStateAdmin extends Admin {
                 'name',
                 'text',
                 [
-                    'label'=>'config_project_state.sonata.form.name.label',
+                    'label'=>'country.sonata.form.name.label',
                     'required'=>true,
                 ]
             )
             ->add(
                 'description',
-                'textarea',
+                'text',
                 [
-                    'label'=>'config_project_state.sonata.form.description.label',
-                    'required'=>false,
+                    'label'=>'country.sonata.form.iata.label',
+                    'required'=>true,
                 ]
             )
         ;
@@ -51,7 +53,14 @@ class ConfigProjectStateAdmin extends Admin {
                 'name',
                 null,
                 [
-                    'label'=>'config_project_state.sonata.filter.name.label',
+                    'label'=>'country.sonata.filter.name.label',
+                ]
+            )
+            ->add(
+                'description',
+                null,
+                [
+                    'label'=>'country.sonata.filter.iata.label',
                 ]
             )
         ;
@@ -69,14 +78,14 @@ class ConfigProjectStateAdmin extends Admin {
                 'name',
                 null,
                 [
-                    'label'=>'config_project_state.sonata.list.name.label',
+                    'label'=>'country.sonata.list.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'config_project_state.sonata.list.description.label',
+                    'label'=>'country.sonata.list.iata.label',
                 ]
             )
             ->add(
