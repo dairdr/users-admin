@@ -46,9 +46,9 @@ services:
               label_catalogue: 'messages'
               label_translator_strategy: 'sonata.admin.label.strategy.underscore'
               
-    sonata.admin.grupo:
-        class: Application\Bundle\AdminBundle\Admin\GrupoAdmin
-        arguments: [~, AppBundle\Entity\Grupo, SonataAdminBundle:CRUD, @service_container]
+    sonata.admin.group:
+        class: Application\Bundle\AdminBundle\Admin\GroupAdmin
+        arguments: [~, AppBundle\Entity\Group, SonataAdminBundle:CRUD, @service_container]
         tags:
             - name: sonata.admin
               manager_type: orm
@@ -77,7 +77,7 @@ services:
             - name: sonata.admin
               manager_type: orm
               group: 'app.sonata.group'
-              label: 'project.sonata.label'
+              label: 'teacher.sonata.label'
               icon: '<i class="fa fa-folder-open fa-fw"></i>'
               label_catalogue: 'messages'
               label_translator_strategy: 'sonata.admin.label.strategy.underscore'
@@ -89,7 +89,7 @@ services:
             - name: sonata.admin
               manager_type: orm
               group: 'app.sonata.group'
-              label: 'project.sonata.label'
+              label: 'student.sonata.label'
               icon: '<i class="fa fa-folder-open fa-fw"></i>'
               label_catalogue: 'messages'
               label_translator_strategy: 'sonata.admin.label.strategy.underscore'

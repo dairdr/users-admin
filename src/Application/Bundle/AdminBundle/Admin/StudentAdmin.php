@@ -28,31 +28,23 @@ class StudentAdmin extends Admin
                 'names',
                 'text',
                 [
-                    'label'=>'vendor.sonata.form.names.label',
-                    'required'=>false,
+                    'label'=>'student.sonata.form.names.label',
+                    'required'=>true,
                 ]
             )
             ->add(
                 'lastname',
                 'text',
                 [
-                    'label'=>'vendor.sonata.form.lastnames.label',
-                    'required'=>false,
+                    'label'=>'student.sonata.form.lastname.label',
+                    'required'=>true,
                 ]
             )
             ->add(
                 'voted',
                 null,
                 [
-                    'label'=>'vendor.sonata.form.enabled.label',
-                    'required'=>false,
-                ]
-            )
-            ->add(
-                'voteCounting',
-                null,
-                [
-                    'label'=>'vendor.sonata.form.enabled.label',
+                    'label'=>'student.sonata.form.voted.label',
                     'required'=>false,
                 ]
             )
@@ -60,7 +52,31 @@ class StudentAdmin extends Admin
                 'isPersonero',
                 null,
                 [
-                    'label'=>'vendor.sonata.form.enabled.label',
+                    'label'=>'student.sonata.form.is_personero.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'isCandidate',
+                null,
+                [
+                    'label'=>'student.sonata.form.is_candidate.label',
+                    'required'=>false,
+                ]
+            )
+            ->add(
+                'code',
+                "text",
+                [
+                    'label'=>'student.sonata.form.code.label',
+                    'required'=>true,
+                ]
+            )
+            ->add(
+                'file',
+                'file',
+                [
+                    'label'=>'student.sonata.form.file.label',
                     'required'=>false,
                 ]
             )
@@ -79,14 +95,21 @@ class StudentAdmin extends Admin
                 'voted',
                 null,
                 [
-                    'label'=>'admin.vendor.filter.lastnames.label',
+                    'label'=>'student.sonata.filter.voted.label',
                 ]
             )
             ->add(
                 'isPersonero',
                 null,
                 [
-                    'label'=>'admin.vendor.filter.lastnames.label',
+                    'label'=>'student.sonata.filter.is_personero.label',
+                ]
+            )
+            ->add(
+                'isCandidate',
+                null,
+                [
+                    'label'=>'student.sonata.filter.is_candidate.label',
                 ]
             )
         ;
@@ -104,21 +127,28 @@ class StudentAdmin extends Admin
                 'names',
                 null,
                 [
-                    'label'=>'vendor.sonata.list.names.label',
+                    'label'=>'student.sonata.list.name.label',
                 ]
             )
             ->add(
                 'lastname',
                 null,
                 [
-                    'label'=>'vendor.sonata.list.lastnames.label',
+                    'label'=>'student.sonata.list.lastname.label',
                 ]
             )
             ->add(
                 'voted',
                 null,
                 [
-                    'label'=>'vendor.sonata.list.lastnames.label',
+                    'label'=>'student.sonata.list.voted.label',
+                ]
+            )
+            ->add(
+                'voteCounting',
+                null,
+                [
+                    'label'=>'student.sonata.list.vote_counting.label',
                 ]
             )
             ->add(
@@ -133,40 +163,5 @@ class StudentAdmin extends Admin
                 ]
             )
         ;
-    }
-    
-    /**
-     * Pre update action.
-     * 
-     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
-     */
-    public function preUpdate($object)
-    {
-        $object->setUpdatedAt(new \DateTime());
-        $object->setFosUserUser($this->container->get('security.context')->getToken()->getUser());
-        parent::preUpdate($object);
-    }
-    
-    /**
-     * Pre persist action.
-     * 
-     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
-     */
-    public function prePersist($object)
-    {
-        $object->setCreatedAt(new \DateTime());
-        $object->setUpdatedAt(new \DateTime());
-        $object->setFosUserUser($this->container->get('security.context')->getToken()->getUser());
-        parent::prePersist($object);
-    }
-    
-    /**
-     * Validate action.
-     * 
-     * @param \Sonata\AdminBundle\Validator\ErrorElement $errorElement
-     * @param \CTL\Bundle\ProjectBundle\Entity\Vendor $object
-     */
-    public function validate(\Sonata\AdminBundle\Validator\ErrorElement $errorElement, $object) {
-        parent::validate($errorElement, $object);
     }
 }

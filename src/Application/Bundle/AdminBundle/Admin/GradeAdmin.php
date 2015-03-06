@@ -32,10 +32,10 @@ class GradeAdmin extends Admin
             )
             ->add(
                 'description',
-                'text',
+                'textarea',
                 [
                     'label'=>'grade.sonata.form.description.label',
-                    'required'=>true,
+                    'required'=>false,
                 ]
             )
         ;

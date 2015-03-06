@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Student
  *
  * @ORM\Table(name="estudiante")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Student
 {
@@ -45,16 +48,49 @@ class Student
     /**
      * @var integer
      *
-     * @ORM\Column(name="vote_counting", type="integer")
+     * @ORM\Column(name="vote_counting", type="integer", nullable=true)
      */
     private $voteCounting;
 
     /**
      * @var boolean
      *
+     * @ORM\Column(name="is_candidate", type="boolean")
+     */
+    private $isCandidate;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=45)
+     */
+    private $code;
+    
+     /**
+     * @var boolean
+     *
      * @ORM\Column(name="is_personero", type="boolean")
      */
     private $isPersonero;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
+     */
+    private $picture;
+    
+    /**
+     * @var string
+     *
+     */
+    private $temp;
+    
+    /**
+     * @var UploadedFile
+     * @Assert\File(maxSize="6000000")
+     */
+    private $file;
 
 
     /**
@@ -160,6 +196,52 @@ class Student
     }
 
     /**
+     * Set isCandidate
+     *
+     * @param boolean $isCandidate
+     * @return Student
+     */
+    public function setIsCandidate($isCandidate)
+    {
+        $this->isCandidate = $isCandidate;
+
+        return $this;
+    }
+
+    /**
+     * Get isCandidate
+     *
+     * @return boolean 
+     */
+    public function getIsCandidate()
+    {
+        return $this->isCandidate;
+    }
+    
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Student
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+    
+    /**
      * Set isPersonero
      *
      * @param boolean $isPersonero
@@ -180,5 +262,128 @@ class Student
     public function getIsPersonero()
     {
         return $this->isPersonero;
+    }
+    
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     * @return Student
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+    
+    /**
+     * Set file
+     *
+     * @param UploadedFile $file
+     * @return Student
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+        if (isset($this->picture)) {
+            $this->temp = $this->picture;
+            $this->picture = null;
+        } else {
+            $this->picture = 'initial';
+        }
+        return $this;
+    }
+
+    /**
+     * Get file
+     *
+     * @return UploadedFile 
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getFile()) {
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->picture = $filename.'.'.$this->getFile()->guessExtension();
+        }
+    }
+    
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        $this->getFile()->move($this->getUploadRootDir(), $this->picture);
+        
+        if (isset($this->temp)) {
+            unlink($this->getUploadRootDir().'/'.$this->temp);
+            $this->temp = null;
+        }
+        $this->file = null;
+    }
+    
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        $file = $this->getAbsolutePath();
+        if ($file) {
+            unlink($file);
+        }
+    }
+    
+    /**
+     * 
+     * @return string|null
+     */
+    public function getAbsolutePath()
+    {
+        return null === $this->picture
+            ? null
+            : $this->getUploadRootDir().'/'.$this->picture;
+    }
+    
+    /**
+     * The absolute directory path where uploaded
+     * documents should be saved.
+     * 
+     * @return string
+     */
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../uploads/'.$this->getUploadDir();
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    protected function getUploadDir()
+    {
+        return 'pic/candidates';
     }
 }

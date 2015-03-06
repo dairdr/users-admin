@@ -26,16 +26,16 @@ class TimeAdmin extends Admin
                 'name',
                 'text',
                 [
-                    'label'=>'country.sonata.form.name.label',
+                    'label'=>'time.sonata.form.name.label',
                     'required'=>true,
                 ]
             )
             ->add(
                 'description',
-                'text',
+                'textarea',
                 [
-                    'label'=>'country.sonata.form.iata.label',
-                    'required'=>true,
+                    'label'=>'time.sonata.form.description.label',
+                    'required'=>false,
                 ]
             )
         ;
@@ -53,14 +53,14 @@ class TimeAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'country.sonata.filter.name.label',
+                    'label'=>'time.sonata.filter.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'country.sonata.filter.iata.label',
+                    'label'=>'time.sonata.filter.description.label',
                 ]
             )
         ;
@@ -78,14 +78,14 @@ class TimeAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'country.sonata.list.name.label',
+                    'label'=>'time.sonata.list.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'country.sonata.list.iata.label',
+                    'label'=>'time.sonata.list.description.label',
                 ]
             )
             ->add(

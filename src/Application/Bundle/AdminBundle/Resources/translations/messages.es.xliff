@@ -24,6 +24,14 @@
                 <source>time.sonata.label</source>
                 <target>Jornada</target>
             </trans-unit>
+            <trans-unit id="student.sonata.label">
+                <source>student.sonata.label</source>
+                <target>Estudiante</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.label">
+                <source>teacher.sonata.label</source>
+                <target>Docente</target>
+            </trans-unit>
             <!-- end app group sonata -->
             
             <!-- grade breadcrumb sonata -->
@@ -65,6 +73,222 @@
                 <target>Descripción</target>
             </trans-unit>
             <!-- end grade list -->
+            
+            <!-- group breadcrumb sonata -->
+            <trans-unit id="breadcrumb.link_group_list">
+                <source>breadcrumb.link_group_list</source>
+                <target>Grupo</target>
+            </trans-unit>
+            <!-- end group breadcrumb sonata -->
+            
+            <!-- group form -->
+            <trans-unit id="group.sonata.form.name.label">
+                <source>group.sonata.form.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="group.sonata.form.description.label">
+                <source>group.sonata.form.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end group form -->
+            
+            <!-- group filter -->
+            <trans-unit id="group.sonata.filter.name.label">
+                <source>group.sonata.filter.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="group.sonata.filter.description.label">
+                <source>group.sonata.filter.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end group filter -->
+            
+            <!-- group list -->
+            <trans-unit id="group.sonata.list.name.label">
+                <source>group.sonata.list.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="group.sonata.list.description.label">
+                <source>group.sonata.list.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end group list -->
+            
+            <!-- time breadcrumb sonata -->
+            <trans-unit id="breadcrumb.link_time_list">
+                <source>breadcrumb.link_time_list</source>
+                <target>Jornada</target>
+            </trans-unit>
+            <!-- end time breadcrumb sonata -->
+            
+            <!-- time form -->
+            <trans-unit id="time.sonata.form.name.label">
+                <source>time.sonata.form.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="time.sonata.form.description.label">
+                <source>time.sonata.form.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end time form -->
+            
+            <!-- time filter -->
+            <trans-unit id="time.sonata.filter.name.label">
+                <source>time.sonata.filter.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="time.sonata.filter.description.label">
+                <source>time.sonata.filter.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end time filter -->
+            
+            <!-- time list -->
+            <trans-unit id="time.sonata.list.name.label">
+                <source>time.sonata.list.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="time.sonata.list.description.label">
+                <source>time.sonata.list.description.label</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <!-- end time list -->
+            
+            <!-- student breadcrumb sonata -->
+            <trans-unit id="breadcrumb.link_student_list">
+                <source>breadcrumb.link_student_list</source>
+                <target>Estudiante</target>
+            </trans-unit>
+            <!-- end student breadcrumb sonata -->
+            
+            <!-- student form -->
+            <trans-unit id="student.sonata.form.names.label">
+                <source>student.sonata.form.names.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.lastname.label">
+                <source>student.sonata.form.lastname.label</source>
+                <target>Apellido</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.voted.label">
+                <source>student.sonata.form.voted.label</source>
+                <target>¿Ha votado?</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.is_personero.label">
+                <source>student.sonata.form.is_personero.label</source>
+                <target>¿Es personero(a)?</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.is_candidate.label">
+                <source>student.sonata.form.is_candidate.label</source>
+                <target>¿Es candidato(a)?</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.code.label">
+                <source>student.sonata.form.code.label</source>
+                <target>Código para votar</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.file.label">
+                <source>student.sonata.form.file.label</source>
+                <target>Foto del tarjetón</target>
+            </trans-unit>
+            <!-- end student form -->
+            
+            <!-- student filter -->
+            <trans-unit id="student.sonata.filter.voted.label">
+                <source>student.sonata.filter.voted.label</source>
+                <target>Estado de votación</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.filter.is_personero.label">
+                <source>student.sonata.filter.is_personero.label</source>
+                <target>Es personero</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.filter.is_candidate.label">
+                <source>student.sonata.filter.is_candidate.label</source>
+                <target>Es candidato</target>
+            </trans-unit>
+            <!-- end student filter -->
+            
+            <!-- student list -->
+            <trans-unit id="student.sonata.list.name.label">
+                <source>student.sonata.list.name.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.list.lastname.label">
+                <source>student.sonata.list.lastname.label</source>
+                <target>Apellido</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.list.voted.label">
+                <source>student.sonata.list.voted.label</source>
+                <target>¿Ha votado?</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.list.vote_counting.label">
+                <source>student.sonata.list.vote_counting.label</source>
+                <target>Total votos</target>
+            </trans-unit>
+            <!-- end student list -->
+            
+            <!-- teacher breadcrumb sonata -->
+            <trans-unit id="breadcrumb.link_teacher_list">
+                <source>breadcrumb.link_teacher_list</source>
+                <target>Docente</target>
+            </trans-unit>
+            <!-- end teacher breadcrumb sonata -->
+            
+            <!-- teacher form -->
+            <trans-unit id="teacher.sonata.form.names.label">
+                <source>teacher.sonata.form.names.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.form.lastname.label">
+                <source>teacher.sonata.form.lastname.label</source>
+                <target>Apellido</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.form.voted.label">
+                <source>teacher.sonata.form.voted.label</source>
+                <target>¿Ha votado?</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.form.is_candidate.label">
+                <source>teacher.sonata.form.is_candidate.label</source>
+                <target>¿Es candidato(a)?</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.form.code.label">
+                <source>teacher.sonata.form.code.label</source>
+                <target>Código para votar</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.form.file.label">
+                <source>teacher.sonata.form.file.label</source>
+                <target>Foto del tarjetón</target>
+            </trans-unit>
+            <!-- end teacher form -->
+            
+            <!-- teacher filter -->
+            <trans-unit id="teacher.sonata.filter.voted.label">
+                <source>teacher.sonata.filter.voted.label</source>
+                <target>Estado de votación</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.filter.is_candidate.label">
+                <source>teacher.sonata.filter.is_candidate.label</source>
+                <target>Es candidato</target>
+            </trans-unit>
+            <!-- end teacher filter -->
+            
+            <!-- teacher list -->
+            <trans-unit id="teacher.sonata.list.names.label">
+                <source>teacher.sonata.list.names.label</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.list.lastname.label">
+                <source>teacher.sonata.list.lastname.label</source>
+                <target>Apellido</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.list.voted.label">
+                <source>teacher.sonata.list.voted.label</source>
+                <target>¿Ha votado?</target>
+            </trans-unit>
+            <trans-unit id="teacher.sonata.list.vote_counting.label">
+                <source>teacher.sonata.list.vote_counting.label</source>
+                <target>Total votos</target>
+            </trans-unit>
+            <!-- end teacher list -->
         </body>
     </file>
 </xliff>

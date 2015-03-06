@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class GrupoAdmin extends Admin
+class GroupAdmin extends Admin
 {
     
     public function __construct($code, $class, $baseControllerName)
@@ -26,16 +26,16 @@ class GrupoAdmin extends Admin
                 'name',
                 'text',
                 [
-                    'label'=>'country.sonata.form.name.label',
+                    'label'=>'group.sonata.form.name.label',
                     'required'=>true,
                 ]
             )
             ->add(
                 'description',
-                'text',
+                'textarea',
                 [
-                    'label'=>'country.sonata.form.iata.label',
-                    'required'=>true,
+                    'label'=>'group.sonata.form.description.label',
+                    'required'=>false,
                 ]
             )
         ;
@@ -53,14 +53,14 @@ class GrupoAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'country.sonata.filter.name.label',
+                    'label'=>'group.sonata.filter.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'country.sonata.filter.iata.label',
+                    'label'=>'group.sonata.filter.description.label',
                 ]
             )
         ;
@@ -78,14 +78,14 @@ class GrupoAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'country.sonata.list.name.label',
+                    'label'=>'group.sonata.list.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'country.sonata.list.iata.label',
+                    'label'=>'group.sonata.list.description.label',
                 ]
             )
             ->add(

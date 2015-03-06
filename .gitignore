@@ -12,6 +12,7 @@ web/bundles/*
 web/css/*
 web/js/*
 web/uploads/*
+/uploads/*
 *.log
 
 # -- Composer -----------------------------------------
