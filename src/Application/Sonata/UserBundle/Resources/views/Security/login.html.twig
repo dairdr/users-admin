@@ -1,4 +1,6 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "ApplicationSonataUserBundle:Security:base.html.twig" %}
+
+{% block title %}A votar! | Login!{% endblock %}
 
 {% block fos_user_content %}
 <div id="login-panel">
@@ -29,9 +31,9 @@
         <div class="form-group">
             <input type="submit" name="_submit" class="btn btn-success btn-block" value="Iniciar sesión" />
         </div>
-        <div class="form-group text-center forgot-password-container">
-            <a href="#">Olvide mi contrase&ntilde;a</a>
-        </div>
+        {#<div class="form-group text-center forgot-password-container">
+            <a href="{{ path('fos_user_resetting_request') }}">Olvide mi contrase&ntilde;a</a>
+        </div>#}
     </form>					
 </div>
 {% endblock %}
