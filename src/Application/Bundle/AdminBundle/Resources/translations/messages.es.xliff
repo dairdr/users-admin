@@ -190,6 +190,30 @@
                 <source>student.sonata.form.file.label</source>
                 <target>Foto del tarjetón</target>
             </trans-unit>
+            <trans-unit id="student.sonata.form.grade.label">
+                <source>student.sonata.form.grade.label</source>
+                <target>Grado</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.grade.placeholder">
+                <source>student.sonata.form.grade.placeholder</source>
+                <target>Seleccione un grado</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.group.label">
+                <source>student.sonata.form.group.label</source>
+                <target>Grupo</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.group.placeholder">
+                <source>student.sonata.form.group.placeholder</source>
+                <target>Seleccione un grupo</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.time.label">
+                <source>student.sonata.form.time.label</source>
+                <target>Jornada</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.form.time.placeholder">
+                <source>student.sonata.form.time.placeholder</source>
+                <target>Seleccione una jornada</target>
+            </trans-unit>
             <!-- end student form -->
             
             <!-- student filter -->

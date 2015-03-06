@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Grade
@@ -34,7 +35,38 @@ class Grade
      * @ORM\Column(name="description", type="text")
      */
     private $description;
+    
+    /**
+     * 
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="Student", mappedBy="grade")
+     */
+    protected $students;
+    
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->students = new ArrayCollection();
+    }
+    
+    /**
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return $this->name;
+    }
 
+    /**
+     * 
+     * @return ArrayCollection
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
 
     /**
      * Get id

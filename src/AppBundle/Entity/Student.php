@@ -91,6 +91,30 @@ class Student
      * @Assert\File(maxSize="6000000")
      */
     private $file;
+    
+    /**
+     * @var Grade
+     * @ORM\Column(name="grade_id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Grade", inversedBy="student")
+     * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
+     */
+    private $grade;
+    
+    /**
+     * @var Group
+     * @ORM\Column(name="group_id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Group", inversedBy="student")
+     * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
+     */
+    private $group;
+    
+    /**
+     * @var Time
+     * @ORM\Column(name="time_id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Time", inversedBy="student")
+     * @ORM\JoinColumn(name="time_id", referencedColumnName="id")
+     */
+    private $time;
 
 
     /**
@@ -385,5 +409,58 @@ class Student
     protected function getUploadDir()
     {
         return 'pic/candidates';
+    }
+    
+    /**
+     * 
+     * @return Grade
+     */
+    function getGrade() {
+        return $this->grade;
+    }
+
+    /**
+     * 
+     * @param Grade $grade
+     */
+    function setGrade(Grade $grade)
+    {
+        $this->grade = $grade;
+    }
+    
+    /**
+     * 
+     * @return Group
+     */
+    function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * 
+     * @return Time
+     */
+    function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * 
+     * @param Group $group
+     */
+    function setGroup(Group $group)
+    {
+        $this->group = $group;
+    }
+
+    /**
+     * 
+     * @param Time $time
+     */
+    function setTime(Time $time)
+    {
+        $this->time = $time;
     }
 }
