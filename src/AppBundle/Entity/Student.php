@@ -94,25 +94,22 @@ class Student
     
     /**
      * @var Grade
-     * @ORM\Column(name="grade_id", nullable=false)
      * @ORM\ManyToOne(targetEntity="Grade", inversedBy="student")
-     * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="grade_id", referencedColumnName="id", nullable=false)
      */
     private $grade;
     
     /**
      * @var Group
-     * @ORM\Column(name="group_id", nullable=false)
      * @ORM\ManyToOne(targetEntity="Group", inversedBy="student")
-     * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="group_id", referencedColumnName="id", nullable=false)
      */
     private $group;
     
     /**
      * @var Time
-     * @ORM\Column(name="time_id", nullable=false)
      * @ORM\ManyToOne(targetEntity="Time", inversedBy="student")
-     * @ORM\JoinColumn(name="time_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="time_id", referencedColumnName="id", nullable=false)
      */
     private $time;
 
