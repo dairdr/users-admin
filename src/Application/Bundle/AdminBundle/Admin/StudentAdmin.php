@@ -9,6 +9,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 class StudentAdmin extends Admin
 {
     private $container;
+    protected $baseRoutePattern = 'student';
+    protected $baseRouteName = 'sonata_student';
     
     public function __construct($code, $class, $baseControllerName, $container)
     {

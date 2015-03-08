@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class GroupAdmin extends Admin
 {
+    protected $baseRoutePattern = 'group';
+    protected $baseRouteName = 'sonata_group';
     
     public function __construct($code, $class, $baseControllerName)
     {

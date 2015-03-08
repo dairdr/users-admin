@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class TimeAdmin extends Admin
 {
+    protected $baseRoutePattern = 'time';
+    protected $baseRouteName = 'sonata_time';
     
     public function __construct($code, $class, $baseControllerName)
     {
