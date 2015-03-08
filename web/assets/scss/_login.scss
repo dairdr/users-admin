@@ -1,5 +1,5 @@
 /* login page */
-#login-panel{
+#login-panel {
     border-radius: 0.4em;
     padding: 0.5em 1.5em;
     border-radius: 8px;
@@ -17,10 +17,10 @@
 }
 
 .logo-container{
-margin-top: 20px;
+    margin-top: 20px;
 }
 
-.container-fluid{
+.container-fluid.login {
     background: url('../img/bg_login.jpg') no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
