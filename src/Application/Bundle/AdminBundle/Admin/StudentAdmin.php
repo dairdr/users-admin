@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class StudentAdmin extends Admin
 {
-    private $container = null;
+    private $container;
     
     public function __construct($code, $class, $baseControllerName, $container)
     {
@@ -131,21 +131,21 @@ class StudentAdmin extends Admin
                 'voted',
                 null,
                 [
-                    'label'=>'student.sonata.filter.voted.label',
+                    'label' => 'student.sonata.filter.voted.label',
                 ]
             )
             ->add(
                 'isPersonero',
                 null,
                 [
-                    'label'=>'student.sonata.filter.is_personero.label',
+                    'label' => 'student.sonata.filter.is_personero.label',
                 ]
             )
             ->add(
                 'isCandidate',
                 null,
                 [
-                    'label'=>'student.sonata.filter.is_candidate.label',
+                    'label' => 'student.sonata.filter.is_candidate.label',
                 ]
             )
         ;
@@ -163,38 +163,38 @@ class StudentAdmin extends Admin
                 'names',
                 null,
                 [
-                    'label'=>'student.sonata.list.name.label',
+                    'label' => 'student.sonata.list.name.label',
                 ]
             )
             ->add(
                 'lastname',
                 null,
                 [
-                    'label'=>'student.sonata.list.lastname.label',
+                    'label' => 'student.sonata.list.lastname.label',
                 ]
             )
             ->add(
                 'voted',
                 null,
                 [
-                    'label'=>'student.sonata.list.voted.label',
+                    'label' => 'student.sonata.list.voted.label',
                 ]
             )
             ->add(
                 'voteCounting',
                 null,
                 [
-                    'label'=>'student.sonata.list.vote_counting.label',
+                    'label' => 'student.sonata.list.vote_counting.label',
                 ]
             )
             ->add(
                 '_action',
                 'actions',
                 [
-                    'actions'=>[
-                        'show'=>[],
-                        'edit'=>[],
-                        'delete'=>[],
+                    'actions' => [
+                        'show' => [],
+                        'edit' => [],
+                        'delete' => [],
                     ]
                 ]
             )

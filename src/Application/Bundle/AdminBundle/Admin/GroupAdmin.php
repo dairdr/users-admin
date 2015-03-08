@@ -26,16 +26,16 @@ class GroupAdmin extends Admin
                 'name',
                 'text',
                 [
-                    'label'=>'group.sonata.form.name.label',
-                    'required'=>true,
+                    'label' => 'group.sonata.form.name.label',
+                    'required' => true,
                 ]
             )
             ->add(
                 'description',
                 'textarea',
                 [
-                    'label'=>'group.sonata.form.description.label',
-                    'required'=>false,
+                    'label' => 'group.sonata.form.description.label',
+                    'required' => false,
                 ]
             )
         ;
@@ -53,14 +53,14 @@ class GroupAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'group.sonata.filter.name.label',
+                    'label' => 'group.sonata.filter.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'group.sonata.filter.description.label',
+                    'label' => 'group.sonata.filter.description.label',
                 ]
             )
         ;
@@ -78,24 +78,24 @@ class GroupAdmin extends Admin
                 'name',
                 null,
                 [
-                    'label'=>'group.sonata.list.name.label',
+                    'label' => 'group.sonata.list.name.label',
                 ]
             )
             ->add(
                 'description',
                 null,
                 [
-                    'label'=>'group.sonata.list.description.label',
+                    'label' => 'group.sonata.list.description.label',
                 ]
             )
             ->add(
                 '_action',
                 'actions',
                 [
-                    'actions'=>[
-                        'show'=>[],
-                        'edit'=>[],
-                        'delete'=>[],
+                    'actions' => [
+                        'show' => [],
+                        'edit' => [],
+                        'delete' => [],
                     ]
                 ]
             )

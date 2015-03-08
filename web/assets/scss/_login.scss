@@ -1,0 +1,71 @@
+/* login page */
+#login-panel{
+    border-radius: 0.4em;
+    padding: 0.5em 1.5em;
+    border-radius: 8px;
+    background: rgba(243,243,243,0.26);
+    border: 1px solid rgba(255,255,255,0.19);
+    box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.55);
+    -o-box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.55);
+    -ms-box-shadow: 0px 5px 12px 0px rgba(0,0,0,0.55);
+}
+
+#login-panel > div:first-child{
+    margin: 2em 0;
+}
+
+.logo-container{
+margin-top: 20px;
+}
+
+.container-fluid{
+    background: url('../img/bg_login.jpg') no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    height: 100%;
+    min-height: 600px;
+}
+
+.form-control{
+    background: transparent;
+}
+
+.text-white{
+    color: white;
+}
+
+.forgot-password-container > a{
+    color: #FEE168;
+}
+
+.white-placeholder{
+    color: white;
+}
+
+.white-placeholder:focus{
+    border-color: #FEE168;
+}
+
+.white-placeholder::-webkit-input-placeholder {
+    color: white;
+}
+.white-placeholder:-moz-placeholder {
+   color: white;
+}
+.white-placeholder::-moz-placeholder {
+   color: white;
+}
+.white-placeholder:-ms-input-placeholder {
+   color: white;
+}
+
+@media (max-width: 991px){
+    .non-float {
+            float: none;
+    }
+}

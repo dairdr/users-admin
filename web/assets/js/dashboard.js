@@ -5,7 +5,7 @@ var app = {
     preloader:null,
     form:"#search-form",
     searchContainer:"#search-container",
-    selected:{},
+    selected:[],
     init:function(){
         this.initCarousel();
         this.initPreloader();
@@ -116,17 +116,25 @@ var app = {
         var item = app.findObjectUp(event.target, ".item");
         var $item = $(item);
         var attr = $item.attr("target");
-        if(app.selected[attr]){
-            $(".candidate.item[selected][target='" + attr + "']")
-                .removeAttr("selected")
-                .find(".item-mark")
-                .removeClass("slidein")
-                .addClass("slideout");
-        }else{
-            app.selected[attr] = {
+        var found = false;
+        [].forEach.call(app.selected, function(item){
+            if(item.tag === attr){
+                found = true;
+                $(".candidate.item[selected][target='" + attr + "']")
+                    .removeAttr("selected")
+                    .find(".item-mark")
+                    .removeClass("slidein")
+                    .addClass("slideout");
+                return;
+            }
+        });
+        
+        if(!found){
+            app.selected.push({
+                tag:attr,
                 id:$item.attr("target-id"),
                 type:attr.split("-")[1]
-            };
+            });
         }
         
         $item.find(".item-mark")

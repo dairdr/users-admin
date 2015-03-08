@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class TeacherAdmin extends Admin
 {
-    private $container = null;
+    private $container;
     
     public function __construct($code, $class, $baseControllerName, $container)
     {
@@ -28,48 +28,48 @@ class TeacherAdmin extends Admin
                 'names',
                 'text',
                 [
-                    'label'=>'teacher.sonata.form.names.label',
-                    'required'=>true,
+                    'label' => 'teacher.sonata.form.names.label',
+                    'required' => true,
                 ]
             )
             ->add(
                 'lastname',
                 'text',
                 [
-                    'label'=>'teacher.sonata.form.lastname.label',
-                    'required'=>true,
+                    'label' => 'teacher.sonata.form.lastname.label',
+                    'required' => true,
                 ]
             )
             ->add(
                 'voted',
                 null,
                 [
-                    'label'=>'teacher.sonata.form.voted.label',
-                    'required'=>false,
+                    'label' => 'teacher.sonata.form.voted.label',
+                    'required' => false,
                 ]
             )
             ->add(
                 'isCandidate',
                 null,
                 [
-                    'label'=>'teacher.sonata.form.is_candidate.label',
-                    'required'=>false,
+                    'label' => 'teacher.sonata.form.is_candidate.label',
+                    'required' => false,
                 ]
             )
             ->add(
                 'code',
                 "text",
                 [
-                    'label'=>'teacher.sonata.form.code.label',
-                    'required'=>true,
+                    'label' => 'teacher.sonata.form.code.label',
+                    'required' => true,
                 ]
             )
             ->add(
                 'file',
                 'file',
                 [
-                    'label'=>'teacher.sonata.form.file.label',
-                    'required'=>false,
+                    'label' => 'teacher.sonata.form.file.label',
+                    'required' => false,
                 ]
             )
         ;
@@ -87,14 +87,14 @@ class TeacherAdmin extends Admin
                 'voted',
                 null,
                 [
-                    'label'=>'teacher.sonata.filter.voted.label',
+                    'label' => 'teacher.sonata.filter.voted.label',
                 ]
             )
             ->add(
                 'isCandidate',
                 null,
                 [
-                    'label'=>'teacher.sonata.filter.is_candidate.label',
+                    'label' => 'teacher.sonata.filter.is_candidate.label',
                 ]
             )
         ;
@@ -112,38 +112,38 @@ class TeacherAdmin extends Admin
                 'names',
                 null,
                 [
-                    'label'=>'teacher.sonata.list.names.label',
+                    'label' => 'teacher.sonata.list.names.label',
                 ]
             )
             ->add(
                 'lastname',
                 null,
                 [
-                    'label'=>'teacher.sonata.list.lastname.label',
+                    'label' => 'teacher.sonata.list.lastname.label',
                 ]
             )
             ->add(
                 'voted',
                 null,
                 [
-                    'label'=>'teacher.sonata.list.voted.label',
+                    'label' => 'teacher.sonata.list.voted.label',
                 ]
             )
             ->add(
                 'voteCounting',
                 null,
                 [
-                    'label'=>'teacher.sonata.list.vote_counting.label',
+                    'label' => 'teacher.sonata.list.vote_counting.label',
                 ]
             )
             ->add(
                 '_action',
                 'actions',
                 [
-                    'actions'=>[
-                        'show'=>[],
-                        'edit'=>[],
-                        'delete'=>[],
+                    'actions' => [
+                        'show' => [],
+                        'edit' => [],
+                        'delete' => [],
                     ]
                 ]
             )
