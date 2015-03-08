@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class GradeAdmin extends Admin
 {
     protected $baseRoutePattern = 'grade';
+    protected $baseRouteName = 'sonata_grade';
     
     public function __construct($code, $class, $baseControllerName)
     {
