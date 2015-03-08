@@ -14,7 +14,7 @@ var app = {
     },
     initCarousel:function(){
         $("#owl-demo").owlCarousel({
-            autoPlay: 5000,
+            autoPlay: 4000,
             items : 1,
             singleItem: true,
             autoHeight: true,
@@ -61,6 +61,7 @@ var app = {
                             .html(response.template)
                             .fadeIn(500);
                         app.owl.destroy();
+                        app.owl = null;
                         app.user.id = response.userId;
                         app.user.type = response.userType;
                         app.initVoting(response.target);
@@ -73,7 +74,7 @@ var app = {
                     );
                 }
             },
-            error:function(response){
+            error:function(){
                 app.showModal(
                     "Mensaje",
                     "Ops! parece que se ha presentado un error en el sistema, por favor intentalo más tarde :(",
@@ -98,13 +99,18 @@ var app = {
         }
         $(target).find(".spinner.loading").remove();
     },
-    showModal:function(title, message, acceptButton){
+    showModal:function(title, message, acceptButton, agreeCallback){
         var $modal = $('#modal');
         var html = $modal.html()
             .replace("{$title}", title)
             .replace("{$message}", message)
             .replace("{$acceptButton}", acceptButton);
         $modal.html(html).modal('show');
+        $modal.off("hidden.bs.modal").on("hidden.bs.modal", function(){
+            if(agreeCallback !== undefined){
+                agreeCallback();
+            }
+        });
         $modal = html = undefined;
     },
     showConfirmModal:function(title, message, acceptButton, agreeCallback){
@@ -114,8 +120,7 @@ var app = {
             .replace("{$message}", message)
             .replace("{$acceptButton}", acceptButton);
         $modal.html(html).modal('show');
-        
-        $(".agree-option").off().on("click", function(){
+        $(".agree-option").off("click").on("click", function(){
             if(agreeCallback !== undefined){
                 agreeCallback();
             }
@@ -166,13 +171,17 @@ var app = {
                 })
             },
             beforeSend:function(){
-                $("#send-vote").off();
+                $("#send-vote").off("click");
+                app.showLoading($("#modal-confirm").find(".modal-body")[0]);
             },
             success:function(response){
                 app.showModal(
                     "Mensaje",
                     response.message,
-                    "Aceptar"
+                    "Aceptar",
+                    function(){
+                        
+                    }
                 );
             },
             error:function(){
@@ -183,6 +192,7 @@ var app = {
                 );
             },
             complete:function(){
+                app.hideLoading($("#modal-confirm").find(".modal-body")[0]);
                 app.user = {};
                 app.selected = [];
             }
