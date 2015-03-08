@@ -1,3 +1,4 @@
+{% if candidates|length > 0 %}
 <div class="candidates-container category-container">
     <div class="category-title">
         <div class="page-header">
@@ -5,57 +6,18 @@
         </div>
     </div>
     <div class="owl-carousel owl-theme category-images owl-candidates">
-        <div class="candidate item" target="candidate-student" target-id="">
+        {% for candidate in candidates %}
+        <div class="candidate item" target="candidate-student" target-id="{{ candidate.id }}">
             <div class="item-mark">
                 <i class="fa fa-check-circle fa-5x"></i>
             </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
+            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="candidate image" />
+            <p class="lead text-success">{{ candidate.names|lower }}&nbsp;{{ candidate.lastname|lower }}</p>
         </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="candidate-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
+        {% endfor %}
     </div>
 </div>
+{% if personeros|length > 0 %}
 <div class="personero-container category-container">
     <div class="category-title">
         <div class="page-header">
@@ -63,57 +25,20 @@
         </div>
     </div>
     <div class="owl-carousel owl-theme category-images owl-candidates">
-        <div class="candidate item" target="personero-student" target-id="">
+        {% for personero in personeros %}
+        <div class="candidate item" target="personero-student" target-id="{{ personero.id }}">
             <div class="item-mark">
                 <i class="fa fa-check-circle fa-5x"></i>
             </div>
             <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
+            <p class="lead text-success">{{ personero.names|lower }}&nbsp;{{ personero.lastname|lower }}</p>
         </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://www.orizonia-talentos.es/wp-content/uploads/2013/02/foto-sedes.png" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
-        <div class="candidate item" target="personero-student" target-id="">
-            <div class="item-mark">
-                <i class="fa fa-check-circle fa-5x"></i>
-            </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
-            <p class="lead text-success">diana diaz</p>
-        </div>
+        {% endfor %}
     </div>
 </div>
+{% endif %}
 <div class="save-button-container text-center">
-    <button id="" class="btn btn-success">Guardar</button>
+    <button id="send-vote" class="btn btn-success">Guardar</button>
+    <input type="hidden" id="send-vote-url" value="{{ url('save-vote') }}" />
 </div>
+{% endif %}

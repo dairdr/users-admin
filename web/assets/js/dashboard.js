@@ -6,6 +6,7 @@ var app = {
     form:"#search-form",
     searchContainer:"#search-container",
     selected:[],
+    user:{},
     init:function(){
         this.initCarousel();
         this.initPreloader();
@@ -60,6 +61,8 @@ var app = {
                             .html(response.template)
                             .fadeIn(500);
                         app.owl.destroy();
+                        app.user.id = response.userId;
+                        app.user.type = response.userType;
                         app.initVoting(response.target);
                     });
                 }else {
@@ -83,12 +86,16 @@ var app = {
             }
         });
     },
-    showLoading:function(){
-        var target = $(this.searchContainer)[0];
+    showLoading:function(target){
+        if(!target){
+            target = $(this.searchContainer)[0];
+        }
         target.appendChild(this.preloader.el);
     },
-    hideLoading:function(){
-        var target = $(this.searchContainer)[0];
+    hideLoading:function(target){
+        if(!target){
+            target = $(this.searchContainer)[0];
+        }
         $(target).find(".spinner.loading").remove();
     },
     showModal:function(title, message, acceptButton){
@@ -100,9 +107,24 @@ var app = {
         $modal.html(html).modal('show');
         $modal = html = undefined;
     },
+    showConfirmModal:function(title, message, acceptButton, agreeCallback){
+        var $modal = $('#modal-confirm');
+        var html = $modal.html()
+            .replace("{$title}", title)
+            .replace("{$message}", message)
+            .replace("{$acceptButton}", acceptButton);
+        $modal.html(html).modal('show');
+        
+        $(".agree-option").off().on("click", function(){
+            if(agreeCallback !== undefined){
+                agreeCallback();
+            }
+        });
+        $modal = html = undefined;
+    },
     initVoting:function(target){
         $(".owl-candidates").owlCarousel({
-            autoPlay: false,
+            autoPlay: 6000,
             items : 5,
             autoHeight: true,
             itemsScaleUp:true
@@ -111,31 +133,86 @@ var app = {
         $(".candidate.item").on("click", function(event){
             app.selectCandidate(event, target);
         });
+        
+        $("#send-vote").on("click", function(){
+            app.showConfirmModal(
+                "Confirmación",
+                "¿Confirma que desea registrar su voto?",
+                "Aceptar",
+                function(){
+                    app.sendVote();
+                }
+            );
+        });
+    },
+    sendVote:function(){
+        if(app.selected.length === 0){
+            app.showModal(
+                "Mensaje",
+                "Para poder realizar la votación debe escoger al menos un candidato.",
+                "Aceptar"
+            );
+            return;
+        }
+        $.ajax({
+            url:$("#send-vote-url").val().trim(),
+            type:"POST",
+            dataType:'json',
+            data:{
+                data:JSON.stringify({
+                    userId:app.user.id,
+                    userType:app.user.type,
+                    selected:app.selected
+                })
+            },
+            beforeSend:function(){
+                $("#send-vote").off();
+            },
+            success:function(response){
+                app.showModal(
+                    "Mensaje",
+                    response.message,
+                    "Aceptar"
+                );
+            },
+            error:function(){
+                app.showModal(
+                    "Mensaje",
+                    "Ops! parece que hay un problema en el servidor, por favor intentalo nuevamente.",
+                    "Aceptar"
+                );
+            },
+            complete:function(){
+                app.user = {};
+                app.selected = [];
+            }
+        });
     },
     selectCandidate:function(event, target){
         var item = app.findObjectUp(event.target, ".item");
         var $item = $(item);
         var attr = $item.attr("target");
+        var i = 0;
         var found = false;
-        [].forEach.call(app.selected, function(item){
-            if(item.tag === attr){
-                found = true;
+        while(i < app.selected.length && !found){
+            if(app.selected[i].tag === attr){
                 $(".candidate.item[selected][target='" + attr + "']")
                     .removeAttr("selected")
                     .find(".item-mark")
                     .removeClass("slidein")
                     .addClass("slideout");
-                return;
+                found = true;
             }
-        });
-        
-        if(!found){
-            app.selected.push({
-                tag:attr,
-                id:$item.attr("target-id"),
-                type:attr.split("-")[1]
-            });
+            i += 1;
         }
+        if(found){
+            app.selected.splice(i-1, 1);
+        }
+        app.selected.push({
+            tag:attr,
+            id:$item.attr("target-id"),
+            type:attr.split("-")[1]
+        });
         
         $item.find(".item-mark")
             .removeClass("slideout")

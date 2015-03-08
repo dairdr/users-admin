@@ -82,37 +82,37 @@ class StudentAdmin extends Admin
             )
             ->add(
                 'grade',
-                'sonata_type_model_autocomplete',
+                'sonata_type_model',
                 [
                     'label' => 'student.sonata.form.grade.label',
                     'class' => 'AppBundle\Entity\Grade',
                     'property' => 'name',
-                    'minimum_input_length' => 2,
-                    'placeholder' => $this->trans('student.sonata.form.grade.placeholder'),
+                    //'minimum_input_length' => 2,
+                    //'placeholder' => $this->trans('student.sonata.form.grade.placeholder'),
                     'required' => true,
                 ]
             )
             ->add(
                 'group',
-                'sonata_type_model_autocomplete',
+                'sonata_type_model',
                 [
                     'label' => 'student.sonata.form.group.label',
                     'class' => 'AppBundle\Entity\Group',
                     'property' => 'name',
-                    'minimum_input_length' => 2,
-                    'placeholder' => $this->trans('student.sonata.form.group.placeholder'),
+                    //'minimum_input_length' => 2,
+                    //'placeholder' => $this->trans('student.sonata.form.group.placeholder'),
                     'required' => true,
                 ]
             )
             ->add(
                 'time',
-                'sonata_type_model_autocomplete',
+                'sonata_type_model',
                 [
                     'label' => 'student.sonata.form.time.label',
                     'class' => 'AppBundle\Entity\Time',
                     'property' => 'name',
-                    'minimum_input_length' => 2,
-                    'placeholder' => $this->trans('student.sonata.form.time.placeholder'),
+                    //'minimum_input_length' => 2,
+                    //'placeholder' => $this->trans('student.sonata.form.time.placeholder'),
                     'required' => true,
                 ]
             )

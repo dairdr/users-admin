@@ -112,6 +112,14 @@ class Student
      * @ORM\JoinColumn(name="time_id", referencedColumnName="id", nullable=false)
      */
     private $time;
+    
+    /**
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return "{$this->names} {$this->lastname}";
+    }
 
 
     /**

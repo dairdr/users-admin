@@ -84,6 +84,14 @@ class Teacher
      * @Assert\File(maxSize="6000000")
      */
     private $file;
+    
+    /**
+     * 
+     * @return string
+     */
+    public function __toString() {
+        return "{$this->names} {$this->lastname}";
+    }
 
 
     /**

@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
+    const STUDENT_TYPE = 'student';
+    const TEACHER_TYPE = 'teacher';
+
     /**
      * @Route("/dashboard", name="dashboard")
      */
@@ -21,23 +24,46 @@ class DefaultController extends Controller
     /**
      * @Route("/send-form", name="send-form")
      * @Method({"POST"})
+     * @param Request $request
+     * @return JsonResponse
      */
     public function searchFormAction(Request $request)
     {
         $code = $request->request->get('code', null);
         $em = $this->getDoctrine()->getManager();
         $object = $em->getRepository('AppBundle:Student')->findOneByCode($code);
-        $data = [
-            'state' => 'ok',
-        ];
+        $data = ['state' => 'ok',];
         if ($object) {
-            $data['template'] = $this->get('twig')->render('AppBundle::student_result.html.twig');
-            $data['target'] = 'student';
+            $candidates = $em->getRepository('AppBundle:Student')->findBy([
+                'grade' => $object->getGrade(),
+                'group' => $object->getGroup(),
+                'time' => $object->getTime(),
+                'isCandidate' => true,
+                'isPersonero' => false,
+            ]);
+            $personeros = $em->getRepository('AppBundle:Student')->findBy([
+                'isPersonero' => true,
+            ]);
+            $data['template'] = $this->get('twig')->render(
+                'AppBundle::student_result.html.twig',
+                [
+                    'candidates' => $candidates,
+                    'personeros' => $personeros,
+                ]
+            );
+            $data['userType'] = DefaultController::STUDENT_TYPE;
+            $data['userId'] = $object->getId();
         } else {
             $object = $em->getRepository('AppBundle:Teacher')->findOneByCode($code);
             if ($object) {
-                $data['template'] = $this->get('twig')->render('AppBundle::teacher_result.html.twig');
-                $data['target'] = 'teacher';
+                $data['template'] = $this->get('twig')->render(
+                    'AppBundle::teacher_result.html.twig',
+                    [
+                        'candidates' => [],
+                    ]
+                );
+                $data['userType'] = DefaultController::TEACHER_TYPE;
+                $data['userId'] = $object->getId();
             } else {
                 $data['state'] = 'error';
                 $data['message'] = 'El código que ha ingresado es inválido, por favor, verifique.';
@@ -45,5 +71,64 @@ class DefaultController extends Controller
         }
         $response = new JsonResponse($data);
         return $response;
+    }
+    
+    /**
+     * @Route("/save-vote", name="save-vote")
+     * @Method({"POST"})
+     * @param Request $request
+     */
+    public function saveVoteAction(Request $request)
+    {
+        $data = $request->request->get('data', null);
+        $resp = [
+            'status' => 'ok',
+            'message' => 'Hemos registrado su voto correctamente.'
+        ];
+        if ($data) {
+            $em = $this->getDoctrine()->getManager();
+            $object = json_decode($data);
+            $temp = null;
+            if ($object->userType === DefaultController::STUDENT_TYPE) {
+                $temp = $em->getRepository('AppBundle:Student')->find($object->userId);
+            } else {
+                $temp = $em->getRepository('AppBundle:Teacher')->find($object->userId);
+            }
+            $this->assignVote($em, $object->selected, $temp, $resp);
+        } else {
+            $resp['status'] = 'error';
+            $resp['message'] = 'No hay datos para hacer la operación.';
+        }
+        $response = new JsonResponse($resp);
+        return $response;
+    }
+    
+    /**
+     * 
+     * @param type $em
+     * @param array $candidates
+     * @param type $user
+     * @param type $response
+     */
+    private function assignVote($em, $candidates, $user, &$response)
+    {
+        if ($user && !$user->getVoted()) {
+            foreach ($candidates as $value) {
+                $temp = null;
+                if ($value->type === DefaultController::STUDENT_TYPE) {
+                    $temp = $em->getRepository('AppBundle:Student')->find($value->id);
+                } else {
+                    $temp = $em->getRepository('AppBundle:Teacher')->find($value->id);
+                }
+                if ($temp) {
+                    $temp->setVoteCounting($temp->getVoteCounting() + 1);
+                }
+            }
+            $user->setVoted(true);
+            $em->flush();
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = 'Usted ya ha votado, solo puede hacerlo una vez.';
+        }
     }
 }
