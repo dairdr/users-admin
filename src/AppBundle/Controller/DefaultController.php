@@ -36,8 +36,8 @@ class DefaultController extends Controller
         if ($object) {
             $candidates = $em->getRepository('AppBundle:Student')->findBy([
                 'grade' => $object->getGrade(),
-                'group' => $object->getGroup(),
-                'time' => $object->getTime(),
+                //'group' => $object->getGroup(),
+                //'time' => $object->getTime(),
                 'isCandidate' => true,
                 'isPersonero' => false,
             ]);
@@ -56,10 +56,13 @@ class DefaultController extends Controller
         } else {
             $object = $em->getRepository('AppBundle:Teacher')->findOneByCode($code);
             if ($object) {
+                $candidates = $em->getRepository('AppBundle:Teacher')->findBy([
+                    'isCandidate' => true,
+                ]);
                 $data['template'] = $this->get('twig')->render(
                     'AppBundle::teacher_result.html.twig',
                     [
-                        'candidates' => [],
+                        'candidates' => $candidates,
                     ]
                 );
                 $data['userType'] = DefaultController::TEACHER_TYPE;

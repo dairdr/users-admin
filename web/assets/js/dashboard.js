@@ -180,7 +180,7 @@ var app = {
                     response.message,
                     "Aceptar",
                     function(){
-                        
+                        location.reload();
                     }
                 );
             },

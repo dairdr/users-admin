@@ -11,7 +11,7 @@
             <div class="item-mark">
                 <i class="fa fa-check-circle fa-5x"></i>
             </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="candidate image" />
+            <img src="{% if candidate.picture %}{{ candidate.picture|imagine_filter('filter_211x285') }}{% else %}{{ 'no_foto.jpg'|imagine_filter('filter_211x285') }}{% endif %}" alt="candidate image" />
             <p class="lead text-success">{{ candidate.names|lower }}&nbsp;{{ candidate.lastname|lower }}</p>
         </div>
         {% endfor %}
@@ -30,7 +30,7 @@
             <div class="item-mark">
                 <i class="fa fa-check-circle fa-5x"></i>
             </div>
-            <img src="http://i983.photobucket.com/albums/ae317/monipal/PROYECTO%20ENEIDA/Minerva.jpg" alt="Owl Image" />
+            <img src="{% if personero.picture %}{{ personero.picture|imagine_filter('filter_211x285') }}{% else %}{{ 'no_foto.jpg'|imagine_filter('filter_211x285') }}{% endif %}" alt="candidate image" />
             <p class="lead text-success">{{ personero.names|lower }}&nbsp;{{ personero.lastname|lower }}</p>
         </div>
         {% endfor %}

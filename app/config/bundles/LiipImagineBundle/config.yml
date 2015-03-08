@@ -8,21 +8,11 @@ liip_imagine:
     loaders:
         profile_loader:
             filesystem:
-                data_root: %kernel.root_dir%/..%liip_imagine_path.data_root%  
+                data_root: %kernel.root_dir%/..%liip_imagine_path.data_root%
     cache: profile
     filter_sets:
-        profile_24x24:
+        filter_211x285:
             data_loader: profile_loader
             quality: 80
             filters:
-                thumbnail: { size: [24, 24], mode: outbound }
-        profile_100x100:
-            data_loader: profile_loader     
-            quality: 80
-            filters:
-                thumbnail: { size: [100, 100], mode: outbound }
-        logo_100:
-            data_loader: tercero_loader
-            quality: 70
-            filters:
-                thumbnail: { size: [50, 50], mode: outbound }
+                thumbnail: { size: [211, 285], mode: outbound }

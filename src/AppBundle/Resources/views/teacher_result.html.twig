@@ -1,1 +1,24 @@
-<h1>teacher result</h1>
+{% if candidates|length > 0 %}
+<div class="candidates-container category-container">
+    <div class="category-title">
+        <div class="page-header">
+            <h2>Candidatos <small>seleccione uno</small></h2>
+        </div>
+    </div>
+    <div class="owl-carousel owl-theme category-images owl-candidates">
+        {% for candidate in candidates %}
+        <div class="candidate item" target="candidate-teacher" target-id="{{ candidate.id }}">
+            <div class="item-mark">
+                <i class="fa fa-check-circle fa-5x"></i>
+            </div>
+            <img src="{% if candidate.picture %}{{ candidate.picture|imagine_filter('filter_211x285') }}{% else %}{{ 'no_foto.jpg'|imagine_filter('filter_211x285') }}{% endif %}" alt="candidate image" />
+            <p class="lead text-success">{{ candidate.names|lower }}&nbsp;{{ candidate.lastname|lower }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="save-button-container text-center">
+    <button id="send-vote" class="btn btn-success">Guardar</button>
+    <input type="hidden" id="send-vote-url" value="{{ url('save-vote') }}" />
+</div>
+{% endif %}
