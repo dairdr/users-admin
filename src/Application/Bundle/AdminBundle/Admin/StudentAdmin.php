@@ -161,7 +161,7 @@ class StudentAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add(
+            ->addIdentifier(
                 'names',
                 null,
                 [
