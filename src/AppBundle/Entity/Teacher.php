@@ -62,7 +62,7 @@ class Teacher
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=45)
+     * @ORM\Column(name="code", type="string", length=45, unique=true)
      */
     private $code;
     
