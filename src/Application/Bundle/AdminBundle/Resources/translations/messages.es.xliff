@@ -221,6 +221,18 @@
                 <source>student.sonata.filter.voted.label</source>
                 <target>Estado de votación</target>
             </trans-unit>
+            <trans-unit id="student.sonata.filter.grade.label">
+                <source>student.sonata.filter.grade.label</source>
+                <target>Grado</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.filter.group.label">
+                <source>student.sonata.filter.group.label</source>
+                <target>Grupo</target>
+            </trans-unit>
+            <trans-unit id="student.sonata.filter.time.label">
+                <source>student.sonata.filter.time.label</source>
+                <target>Jornada</target>
+            </trans-unit>
             <trans-unit id="student.sonata.filter.is_personero.label">
                 <source>student.sonata.filter.is_personero.label</source>
                 <target>Es personero</target>

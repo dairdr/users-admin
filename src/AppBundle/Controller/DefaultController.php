@@ -49,6 +49,7 @@ class DefaultController extends Controller
                 [
                     'candidates' => $candidates,
                     'personeros' => $personeros,
+                    'voter' => $object->getNames(),
                 ]
             );
             $data['userType'] = DefaultController::STUDENT_TYPE;
@@ -63,6 +64,7 @@ class DefaultController extends Controller
                     'AppBundle::teacher_result.html.twig',
                     [
                         'candidates' => $candidates,
+                        'voter' => $object->getNames(),
                     ]
                 );
                 $data['userType'] = DefaultController::TEACHER_TYPE;

@@ -60,7 +60,9 @@ var app = {
                         $(this).hide()
                             .html(response.template)
                             .fadeIn(500);
-                        app.owl.destroy();
+                        if(app.owl){
+                            app.owl.destroy();
+                        }
                         app.owl = null;
                         app.user.id = response.userId;
                         app.user.type = response.userType;

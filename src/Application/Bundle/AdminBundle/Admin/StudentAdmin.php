@@ -137,6 +137,27 @@ class StudentAdmin extends Admin
                 ]
             )
             ->add(
+                'grade',
+                null,
+                [
+                    'label' => 'student.sonata.filter.grade.label',
+                ]
+            )
+            ->add(
+                'group',
+                null,
+                [
+                    'label' => 'student.sonata.filter.group.label',
+                ]
+            )
+            ->add(
+                'time',
+                null,
+                [
+                    'label' => 'student.sonata.filter.time.label',
+                ]
+            )
+            ->add(
                 'isPersonero',
                 null,
                 [
