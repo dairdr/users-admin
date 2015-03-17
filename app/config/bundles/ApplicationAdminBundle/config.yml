@@ -23,7 +23,7 @@ sonata_admin:
     options:
         html5_validate:                         true      # use html5 validation
         confirm_exit:                           true      # enabled confirmation when quitting with unsaved changes
-        use_select2:                            true      # enable select2
+        use_select2:                            false      # enable select2
         use_icheck:                             true      # enable iCheck
         pager_links:                            5         # pager max links to display
         dropdown_number_groups_per_colums:      2
@@ -32,7 +32,7 @@ sonata_admin:
             - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
             - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
             - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
-            - bundles/sonataadmin/vendor/AdminLTE/css/AdminLTE.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
             - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
             - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
             - bundles/sonatacore/vendor/select2/select2.css
@@ -56,7 +56,7 @@ sonata_admin:
             - bundles/sonataadmin/jquery/jquery.confirmExit.js
             - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js
             - bundles/sonatacore/vendor/select2/select2.min.js
-            - bundles/sonataadmin/App.js
+            - bundles/sonataadmin/vendor/admin-lte/dist/js/app.min.js
             - bundles/sonataadmin/Admin.js
             - bundles/sonataadmin/treeview.js
             - bundles/sonatacore/vendor/select2/select2_locale_es.js
