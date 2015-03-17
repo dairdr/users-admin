@@ -9,3 +9,8 @@ button.close:focus {
 .fixed .main-header {
     background-color: white;
 }
+
+.sonata-ba-list-field-header.sonata-ba-list-field-header-batch,
+td.sonata-ba-list-field.sonata-ba-list-field-batch {
+  text-align: center;
+}

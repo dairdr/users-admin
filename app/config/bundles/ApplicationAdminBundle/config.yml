@@ -32,6 +32,7 @@ sonata_admin:
             - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
             - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
             - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/iCheck/skins/flat/blue.css
             - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
             - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
             - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
