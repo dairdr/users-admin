@@ -5,3 +5,7 @@
 button.close:focus {
     outline: none;
 }
+
+.fixed .main-header {
+    background-color: white;
+}
