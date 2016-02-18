@@ -55,6 +55,7 @@ var app = {
                 app.showLoading();
             },
             success:function(response){
+                console.log(response);
                 if(response.state === 'ok'){
                     $(".content-container").fadeOut(500,function(){
                         $(this).hide()
@@ -66,7 +67,7 @@ var app = {
                         app.owl = null;
                         app.user.id = response.userId;
                         app.user.type = response.userType;
-                        app.initVoting(response.target);
+                        app.initVoting(response.userType);
                     });
                 }else {
                     app.showModal(

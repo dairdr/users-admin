@@ -1,6 +1,7 @@
 <div class="page-header text-center">
     <h2>{{ voter }} <small>Bienvenid@!</small></h2>
 </div>
+
 {% if candidates|length > 0 %}
 <div class="candidates-container category-container">
     <div class="category-title">
@@ -20,6 +21,8 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
+
 {% if personeros|length > 0 %}
 <div class="personero-container category-container">
     <div class="category-title">
@@ -40,8 +43,8 @@
     </div>
 </div>
 {% endif %}
+
 <div class="save-button-container text-center">
     <button id="send-vote" class="btn btn-success">Guardar</button>
     <input type="hidden" id="send-vote-url" value="{{ url('save-vote') }}" />
 </div>
-{% endif %}
