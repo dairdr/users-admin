@@ -55,7 +55,6 @@ var app = {
                 app.showLoading();
             },
             success:function(response){
-                console.log(response);
                 if(response.state === 'ok'){
                     $(".content-container").fadeOut(500,function(){
                         $(this).hide()
