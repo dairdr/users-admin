@@ -18,7 +18,8 @@ var app = {
             items : 1,
             singleItem: true,
             autoHeight: true,
-            itemsScaleUp:true
+            itemsScaleUp:true,
+            transitionStyle:"fade"
         });
         this.owl = $(".owl-carousel").data('owlCarousel');
     },
