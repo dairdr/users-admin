@@ -9,7 +9,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-        <field name="facebookId" column="facebook_id" type="string" length="255" />
+        <field name="facebookId" column="facebook_id" type="string" nullable="true" length="255" />
     </entity>
 
 </doctrine-mapping>
