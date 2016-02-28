@@ -1,0 +1,23 @@
+{% extends "SonataUserBundle:Profile:action.html.twig" %}
+
+{% block sonata_profile_content %}
+	<div class="panel panel-default">
+	  <div class="panel-heading">{{ user.getFullName() }}</div>
+	  <div class="panel-body">
+	  	<div><strong>Nombres</strong></div>
+	  	<div><span>{{ user.getFullName() }}</span></div>
+	  	<br />
+	  	<div><strong>Usuario</strong></div>
+	  	<div><span>{{ user.username }}</span></div>
+	  	<br />
+	  	<div><strong>Email</strong></div>
+	  	<div><span>{{ user.email }}</span></div>
+	  	<br />
+	  	<div><strong>Tel&eacute;fono</strong></div>
+	  	<div><span>{{ user.phone|default('No disponible') }}</span></div>
+	  	<br />
+	  	<div><strong>Activo</strong></div>
+	  	<div><span>{% if user.enabled == 1 %}S&iacute;{% else %}No{% endif %}</span></div>
+	  </div>
+	</div>
+{% endblock %}

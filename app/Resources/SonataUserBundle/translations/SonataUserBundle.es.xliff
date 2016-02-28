@@ -6,6 +6,10 @@
                 <source>user_block_profile</source>
                 <target>Usuario</target>
             </trans-unit>
+            <trans-unit id="title_user_edit_password">
+							<source>title_user_edit_password</source>
+							<target>Editar Clave</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

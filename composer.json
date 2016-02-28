@@ -8,7 +8,7 @@
     },
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": "2.3.*",
+        "symfony/symfony": "2.7.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
@@ -33,7 +33,9 @@
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "symfony/monolog-bridge": "2.4.*"
+        "symfony/monolog-bridge": "2.4.*",
+        "facebook/php-sdk": "3.2.0",
+        "friendsofsymfony/facebook-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

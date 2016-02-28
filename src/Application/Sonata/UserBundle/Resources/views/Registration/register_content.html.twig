@@ -1,0 +1,38 @@
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<h2 class="panel-title">{{ 'title_user_registration'|trans({}, 'SonataUserBundle') }}</h2>
+	</div>
+	<div class="panel-body">
+		<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register form-horizontal">
+
+			{{ form_widget(form) }}
+
+			<div class="form-actions">
+				<input type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-success pull-right" />
+			</div>
+		</form>
+		<button onclick="init();">Cargar Datos de Facebook</button>
+	</div>
+</div>
+<script type="text/javascript">
+	function init(){
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				FB.api('me?fields=id,name,email', setData);
+			} else {
+				FB.login(function(response) {
+					if (response.authResponse.accessToken) {    
+						FB.api('me?fields=id,name,email', setData);
+					} 
+				}, {scope:'email'});
+			}
+		});
+	}
+
+	function setData(user){
+		if(user != null) {
+			$("#sonata_user_registration_form_username").val(user.name.toLowerCase().replace(" ", "_"));
+			$("#sonata_user_registration_form_email").val(user.email);
+		}
+	}
+</script>

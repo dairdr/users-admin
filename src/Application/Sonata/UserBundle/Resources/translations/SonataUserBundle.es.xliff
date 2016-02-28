@@ -6,6 +6,10 @@
                 <source>sonata_user</source>
                 <target>Administración</target>
             </trans-unit>
+            <trans-unit id="link_edit_authentication">
+							<source>link_edit_authentication</source>
+							<target>Inicio de sesión</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

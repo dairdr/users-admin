@@ -1,0 +1,23 @@
+{% extends "SonataUserBundle:Profile:action.html.twig" %}
+
+{% block sonata_profile_content %}
+	<div class="panel panel-default">
+	  <div class="panel-heading">Usuarios</div>
+	  <div class="panel-body">
+	  	<table class="table table-bordered">
+	  		<tr>
+	  			<th>Nombre</th>
+	  			<th>Usuario</th>
+	  			<th>Acción</th>
+	  		</tr>
+	  		{% for user in users %}
+		  		<tr>
+		  			<td>{{ user.getFullName() }}</td>
+		  			<td>{{ user.username }}</td>
+		  			<td>{% if is_granted('ROLE_SONATA_USER_ADMIN_USER_VIEW') %}<a href="{{ path('fos_user_profile_show_single', {id:user.id}) }}">Ver</a>{% endif %}</td>
+		  		</tr>
+				{% endfor %}
+			</table>
+	  </div>
+	</div>
+{% endblock %}

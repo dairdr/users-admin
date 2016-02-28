@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chartset="utf-8" />
+	<title>Usuario</title>
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootswatch-3.2.0-flatly/css/bootstrap.css') }}" />
+	{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'init();'}) }}
+</head>
+<body>
+	{% block content %}{% endblock %}
+	<script type="text/javascript" src="{{ asset('assets/libs/sb-admin/js/jquery-1.11.0.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('assets/libs/bootswatch-3.2.0-flatly/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

@@ -22,11 +22,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class ApplicationSonataUserBundle extends Bundle
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'SonataUserBundle';
-    }
+		/**
+		 * {@inheritdoc}
+		 */
+		public function getParent()
+		{
+				return 'SonataUserBundle';
+		}
 }

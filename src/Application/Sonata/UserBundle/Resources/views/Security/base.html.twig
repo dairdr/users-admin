@@ -17,19 +17,20 @@
         
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/libs/bootswatch-3.2.0-flatly/css/bootstrap.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/login.css') }}" />
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
     </head>
     <body>
         <div class="container-fluid login">
             <div class="row logo-container">
                 <div class="col-md-3 col-md-offset-1">
-                    <h1><a href="#"><img src="{{ asset('assets/img/logo.png') }}" alt="project one logo"></a></h1>
+                    <h1 style="background-color:rgba(0,0,0,.5);padding:.5em;"><a href="#"><img src="{{ asset('assets/img/logo.png') }}" alt="project one logo"></a></h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-1 hidden-sm hidden-xs">
                     <div class="text-white">
-                        <h3>Votaciones 1.0</h3>
-                        <p>Sistema de votaciones escolar</p>
+                        <h3>Usuarios 1.0</h3>
+                        <p>Sistema de informaci&oacute;n</p>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 col-lg-4 center-block non-float">

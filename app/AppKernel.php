@@ -29,6 +29,8 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             
             new Liip\ImagineBundle\LiipImagineBundle(),
+
+            new FOS\FacebookBundle\FOSFacebookBundle(),
             
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Bundle\AdminBundle\ApplicationAdminBundle(),
