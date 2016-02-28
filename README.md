@@ -14,8 +14,6 @@ El proyecto esta relizado bajo la estructura de Symfony 2.7, contiene los siguie
   * app: contiene la configuración genral y específica de cada bundle, tambien contiene la cache
   y archivos para ejecutar comandos de tareas rutinarias al momento de del desarrollo y producción.
 
-  * bin: archivos compilados
-
   * vendor: librerias y deppendencias de symfony y de los bundles desarrollados.
 
   * web: carpeta publica expuesta para el inicio de toda la app, incluye los assets y archivos estáticos.
