@@ -4,7 +4,7 @@ Users Admin Webapp
 Webapp para la administración de usuarios, grupos y roles.
 
 
-Escructura del poryecto
+Escructura del proyecto
 ------------------------
 
 El proyecto esta relizado bajo la estructura de Symfony 2.7, contiene los siguientes directorios:
@@ -14,9 +14,9 @@ El proyecto esta relizado bajo la estructura de Symfony 2.7, contiene los siguie
   * app: contiene la configuración genral y específica de cada bundle, tambien contiene la cache
   y archivos para ejecutar comandos de tareas rutinarias al momento de del desarrollo y producción.
 
-  * vendor: librerias y deppendencias de symfony y de los bundles desarrollados.
+  * vendor: librerias y dependencias de symfony y de los bundles desarrollados.
 
-  * web: carpeta publica expuesta para el inicio de toda la app, incluye los assets y archivos estáticos.
+  * web: carpeta pública expuesta para el inicio de toda la app, incluye los assets (css, javascript e imágenes), del proyecto y de los demás bundles de terceros.
 
 
 El directorio src contien los bundles necesarios, los cuales son:
