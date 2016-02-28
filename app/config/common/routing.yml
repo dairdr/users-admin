@@ -1,8 +1,8 @@
 # Archivo de routing principal
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-    prefix:   /
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
 
 application_admin:
     resource: "@ApplicationAdminBundle/Resources/config/routing.yml"
